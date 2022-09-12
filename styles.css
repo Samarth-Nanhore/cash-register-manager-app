@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Bangers&family=Josefin+Sans&family=Montserrat&family=Open+Sans&family=Sora&display=swap');
+
+
+* {
+  font-family: 'Sora', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+body {
+  min-width: 100vw;
+}
+
+.container {
+  text-align: center;
+}
+
+.heading {
+  color: #fde047;
+}
+
+.description {
+  margin: 2rem;
+}
+
+.input-label {
+  font-size: large;
+  font-weight: 400;
+}
+
+.input {
+  font-size: 14px;
+  padding: 0.6rem 1rem;
+  margin: 1rem;
+  border: 2px solid ;
+  width: 50%;
+  max-width: 258px;
+}
+
+#check-button {
+  background: #fef08a;
+  border: none;
+  color: rgb(8, 8, 8);
+  padding: 0.7rem 1rem;
+  font-size: large;
+  cursor: pointer;
+  outline: #fff;
+  margin: auto;
+ 
+}
+
+#error-message {
+  display: block;
+  font-size: larger;
+  margin: 1rem 0 0;
+}
+
+
+.change-table {
+  width: 30%;
+  text-align: justify;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.change-table caption {
+  margin: 2rem auto;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+th,
+td {
+  border: 1px solid ;
+  width: 0%;
+  border-collapse: collapse;
+  padding: 0.4rem;
+}
+
