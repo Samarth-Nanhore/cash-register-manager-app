@@ -1,66 +1,88 @@
-// all variable arranged
 var billAmount = document.querySelector('#bill-amount');
 var cashGiven = document.querySelector('#cash-given');
 var button = document.querySelector('#check-button');
 var output = document.querySelector('#output');
-var message = document.querySelector('#error-message');
-var noOfNote = document.querySelectorAll(".no-of-notes");
+var message = document.querySelector('#error-msg');
+var noOfNote = document.querySelectorAll(".notes");
+
+//array for notes....
+const notes = [2000, 500, 100, 50, 20, 10, 5, 1];
 
 
-
-const availableNote = [2000, 500, 100, 50, 20, 10, 5, 1]; //array of the notes 
-
-// check whether both value insert
+//check both input field
 button.addEventListener('click', ()=>{
+
     if(cashGiven.value==''||billAmount.value == ''){
-        output.innerText = 'you have to insert both value';
+
+        output.innerText = 'Please insert both the values';
     }else{
-        validateFunction();
+        validateFunction(); //if yes, call validateFunction 
     }
 });
 
-// logic function
+//check for proper cash amount as well as provide parameter value of return amount to the calculate function
 function validateFunction() {
-    // First checking wherther the bill is grater than zero
-    messageHide();
+    msgHide();
+
     var cashgiven = Number(cashGiven.value);
     var billamount = Number(billAmount.value);
+
+
     if (cashgiven > 0 && billamount > 0) {
+        
         if (cashgiven >= billamount) {
-            const returnAmount = cashgiven - billamount;
-            calculateFun(returnAmount);
+
+            const returnAmount = cashgiven - billamount;   
+// substracting cash value with bill amount:
+// cash=100 and bill=50 output = 100-50 => 50
+            calculate(returnAmount);
 
         } else {
-       
-            error('Cash smount must be greater than or equals to bill');
+        
+            errorMessage('Cash should be greater than or equals to bill');
         }
     }else {
     // bill is less  than small
-    error('Do you want to wash plates? 😁');
+    errorMessage('Do you want to wash plates? 😁');
     }
 }
 
+function calculate(returnAmount) {
 
-function calculateFun(returnAmount) {
-    output.innerText = 'Amount to be returned: ' + parseInt(returnAmount);
+    output.innerText = ' Return Amount ' + parseInt(returnAmount); //parseInt for getting interger value
     if (returnAmount < 1) {
-        error('No amount to be returned');
+        errorMessage('There is no amount to returned');
     }
-    for (let i = 0; i < availableNote.length; i++) {
-        const numberOfNodes = Math.trunc(
-            returnAmount / availableNote[i]
+    for (let i = 0; i < notes.length; i++) {         
+        // math.trunc(50/100) => 0
+        const numberOfNote = Math.trunc(
+            returnAmount / notes[i]
         );
-        returnAmount = returnAmount % availableNote[i];
-        noOfNote[i].innerText = numberOfNodes;
+        returnAmount = returnAmount % notes[i];
+
+        noOfNote[i].innerText = numberOfNote;
+
+        console.log(numberOfNote)
     }
 }
 
 
-function messageHide(){
+function msgHide(){
     message.style.display = "none";
 }
 
-function errorMsgFun(msg) {
+function errorMessage(msg) {
     message.style.display = 'block';
     message.innerText = msg;
 }
+
+
+
+
+
+
+
+
+
+
+
